@@ -120,8 +120,11 @@ public class TmtopupTruemoneyRedeemer implements TruemoneyRedeemer {
         String reply = sb.toString().trim();
         String[] replies = reply.split("\\|");
 
-        if (reply.contains("ERROR|"))
+        if (reply.contains("ERROR|")) {
+            if (replies[1].contains("temporarily blocked"))
+                throw new TemporarilyBlockedException("This IP Address is temporarily blocked");
             throw new TmtopupAPIException(reply.substring(reply.indexOf("ERROR|")));
+        }
 
         if (!reply.contains("SUCCEED|"))
             throw new TmtopupAPIException("Invalid TMTOPUP API response (" + reply + ")");
