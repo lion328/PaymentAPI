@@ -63,11 +63,11 @@ public class TmtopupTruemoneyRedeemer implements TruemoneyRedeemer {
     }
 
     @Override
-    public synchronized BigDecimal redeem(String pin) throws Exception {
+    public BigDecimal redeem(String pin) throws Exception {
         return redeem(pin, "PaymentAPI", "PaymentAPI", "example@example.com");
     }
 
-    public synchronized BigDecimal redeem(String pin, String ref1, String ref2, String email) throws Exception {
+    public BigDecimal redeem(String pin, String ref1, String ref2, String email) throws Exception {
         if (!TruemoneyUtil.isValidPin(pin))
             throw new InvalidPinException("Invalid TrueMoney pin (" + pin + ") in format checking");
 
