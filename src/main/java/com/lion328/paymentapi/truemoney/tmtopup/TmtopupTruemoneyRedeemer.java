@@ -117,7 +117,7 @@ public class TmtopupTruemoneyRedeemer implements TruemoneyRedeemer {
             sb.append('\n');
         }
 
-        String reply = sb.toString();
+        String reply = sb.toString().trim();
         String[] replies = reply.split("\\|");
 
         if (reply.contains("ERROR|"))
