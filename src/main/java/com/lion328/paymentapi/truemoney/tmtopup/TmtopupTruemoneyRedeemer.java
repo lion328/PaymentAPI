@@ -151,7 +151,7 @@ public class TmtopupTruemoneyRedeemer implements TruemoneyRedeemer {
         return new BigDecimal(replies[2]);
     }
 
-    private String checkStatus(String cid, String hash) throws Exception {
+    private static String checkStatus(String cid, String hash) throws Exception {
         String charsetName = StandardCharsets.UTF_8.name();
 
         URL url = new URL(STATUS_URL.toString().replace("${cid}", URLEncoder.encode(cid, charsetName))
